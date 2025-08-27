@@ -14,9 +14,13 @@ const Input = ({colorValues ,setColorValues, setHexaValues, isDarkText,
       value={colorValues}
       placeholder='Add Color Name'
       onChange={(e) => {
-        setColorValues(e.target.value)
+        setColorValues(e.target.value);
+        setHexaValues((e.target.value))
       }}
       />
+      <button onClick={() => setIsDarkText(!isDarkText)}> 
+        Toggle Text Color
+      </button>
 
     </form>
   )
