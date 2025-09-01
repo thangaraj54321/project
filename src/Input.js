@@ -1,7 +1,11 @@
 import React from 'react'
 
-const Input = ({colorValues ,setColorValues, setHexaValues, isDarkText,
-    setIsDarkText
+const Input = ({
+  colorValues,
+  setColorValues,
+  setHexValues,   // ✅ corrected here
+  isDarkText,
+  setIsDarkText
 }) => {
   return (
     <form onSubmit={(e) => e.preventDefault()}>
@@ -9,19 +13,18 @@ const Input = ({colorValues ,setColorValues, setHexaValues, isDarkText,
         Add Color Name:
       </label>
       <input 
-      autoFocus
-      type='text'
-      value={colorValues}
-      placeholder='Add Color Name'
-      onChange={(e) => {
-        setColorValues(e.target.value);
-        setHexaValues((e.target.value))
-      }}
+        autoFocus
+        type='text'
+        value={colorValues}
+        placeholder='Add Color Name'
+        onChange={(e) => {
+          setColorValues(e.target.value);
+          setHexValues(e.target.value);   // ✅ corrected here
+        }}
       />
-      <button onClick={() => setIsDarkText(!isDarkText)}> 
+      <button type="button" onClick={() => setIsDarkText(!isDarkText)}> 
         Toggle Text Color
       </button>
-
     </form>
   )
 }
